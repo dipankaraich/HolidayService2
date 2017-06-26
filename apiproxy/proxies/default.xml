@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <!-- TODO: should be added later for authentication -->
+            <!--
+            <Step>
+                <Name>verifyToken</Name>
+            </Step> -->
+            <!-- TODO: should be added later for removing auth headers-->
+            <!--
+            <Step>
+                <Name>stripAuthHeaders</Name>
+            </Step> -->
+            <Step>
+                <Name>AssignCommonVariables</Name>
+            </Step>
+            <Step>
+                <Name>ExtractInputInfo</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <!--  GET countries -->
+        <Flow name="countries">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>BuildGetCountriesRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>transformGetCountriesResponse</Name>
+                </Step>
+                <Step>
+                    <Name>buildGetCountriesJSONResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/countries") and (requestVerb = "GET")</Condition>
+        </Flow>
+        <Flow name="getHolidaysAvailable">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>BuildGetAvailableHolidaysRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>transformGetHolidaysAvailableResponse</Name>
+                </Step>
+                <Step>
+                    <Name>buildHolidaysJSONResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/countries/{countrycode}/holidays") and (requestVerb = "GET")</Condition>
+        </Flow>
+         <Flow name="getHolidaysForDateRange">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>BuildGetHolidaysForDateRangeRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>transformGetHolidaysForDateRangeResponse</Name>
+                </Step>
+                <Step>
+                    <Name>buildHolidaysJSONResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/countries/{countrycode}/holidays") and (requestVerb = "POST") and (startDate != null) and (endDate!=null) and (year == null) and (month == null)</Condition>
+        </Flow>
+        <!-- No matching flow. raise fault 404 -->
+        <Flow name="noFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>raiseNoFlowFault</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>setResponseHeaders</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/holidayservice/v2</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

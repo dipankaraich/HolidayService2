@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XSL async="false" continueOnError="false" enabled="true" name="transformGetCountriesResponse">
+    <DisplayName>transformGetCountriesResponse</DisplayName>
+    <ResourceURL>xsl://transformGetCountriesResponse.xsl</ResourceURL>
+</XSL>

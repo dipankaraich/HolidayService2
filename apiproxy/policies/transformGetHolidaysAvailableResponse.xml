@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XSL async="false" continueOnError="false" enabled="true" name="transformGetHolidaysAvailableResponse">
+    <DisplayName>transformGetHolidaysAvailableResponse</DisplayName>
+    <ResourceURL>xsl://transformGetHolidaysAvailableResponse.xsl</ResourceURL>
+    <Parameters ignoreUnresolvedVariables="true"/>
+    <OutputVariable/>
+</XSL>

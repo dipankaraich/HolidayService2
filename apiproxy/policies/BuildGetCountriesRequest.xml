@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="BuildGetCountriesRequest">
+    <DisplayName>BuildGetCountriesRequest</DisplayName>
+    <AssignTo createNew="true" transport="http" type="request"/>
+    <Remove/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">text/xml;charset=UTF-8</Header>
+            <Header name="SOAPAction">http://www.holidaywebservice.com/HolidayService_v2/GetCountriesAvailable</Header>
+        </Headers>
+        <Payload>
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hol="http://www.holidaywebservice.com/HolidayService_v2/">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <hol:GetCountriesAvailable/>
+                </soapenv:Body>
+            </soapenv:Envelope>
+        </Payload>
+        <Verb>POST</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

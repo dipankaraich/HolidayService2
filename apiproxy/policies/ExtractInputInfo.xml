@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractInputInfo">
+    <DisplayName>ExtractInputInfo</DisplayName>
+    <URIPath>
+        <Pattern>/countries/{countryCode}/holidays/{holidayCode}</Pattern>
+        <Pattern>/countries/{countryCode}/holidays</Pattern>
+        <Pattern>/countries/{countryCode}</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="year">
+            <JSONPath>$.year</JSONPath>
+        </Variable>
+        <Variable name="month">
+            <JSONPath>$.month</JSONPath>
+        </Variable>
+        <Variable name="startDate">
+            <JSONPath>$.startDate</JSONPath>
+        </Variable>
+        <Variable name="endDate">
+            <JSONPath>$.endDate</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

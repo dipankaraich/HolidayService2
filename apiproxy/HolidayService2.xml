@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="2" name="HolidayService2">
+    <Basepaths>/holidayservice/v2</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1494680203778</CreatedAt>
+    <CreatedBy>dipankar.aich@live.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>HolidayService2</DisplayName>
+    <LastModifiedAt>1494698140907</LastModifiedAt>
+    <LastModifiedBy>dipankar.aich@live.com</LastModifiedBy>
+    <Policies>
+        <Policy>AssignCommonVariables</Policy>
+        <Policy>BuildGetAvailableHolidaysRequest</Policy>
+        <Policy>BuildGetCountriesRequest</Policy>
+        <Policy>ExtractInputInfo</Policy>
+        <Policy>buildGetCountriesJSONResponse</Policy>
+        <Policy>buildGetHolidaysAvailableJSONResponse</Policy>
+        <Policy>raiseNoFlowFault</Policy>
+        <Policy>removePathSuffix</Policy>
+        <Policy>setResponseHeaders</Policy>
+        <Policy>transformGetCountriesResponse</Policy>
+        <Policy>transformGetHolidaysAvailableResponse</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>xsl://transformGetCountriesResponse.xsl</Resource>
+        <Resource>xsl://transformGetHolidaysAvailableResponse.xsl</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

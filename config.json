@@ -1,0 +1,34 @@
+{"configurations":[
+	{
+		"name":"test",
+		"proxies":[],
+		"policies": [],
+		"targets": [
+			{
+				"name":"default.xml",
+				"tokens": [
+					{
+						"xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+						"value":"http://www.holidaywebservice.com/HolidayService_v2/HolidayService2.asmx"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name":"prod",
+		"proxies":[],
+		"policies": [],
+		"targets": [
+			{
+				"name":"default.xml",
+				"tokens": [
+					{
+						"xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+						"value":"http://www.holidaywebservice.com/HolidayService_v2/HolidayService2.asmx"
+					}
+				]
+			}
+		]
+	}
+]}
